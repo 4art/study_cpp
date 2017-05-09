@@ -1,5 +1,0 @@
-CPP_OPTS=-std=c++11
-##c++11 is not working :(
-square:  get_set.cpp get_set.h main.cpp
-	 g++ $(CPP_OPTS) -o square get_set.cpp
-	 get_set

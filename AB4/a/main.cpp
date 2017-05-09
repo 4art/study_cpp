@@ -33,7 +33,7 @@ void printSquares(int count, get_set *arrayObj){
 	for(int i = 0; i < count; i++){
 		cout << arrayObj[i].getName() << " Länge: " << arrayObj[i].getHeight() << "cm " << "Breite: " << arrayObj[i].getWidth() << "cm" << endl;
 		arrayObj[i].setSquares();
-	}
+	} 
 	cout << endl;
 	for(int i = 0; i < count; i++){
 		cout << "Umfang " << arrayObj[i].getName() << ": " << arrayObj[i].getPerimeter() << " cm" << endl;
