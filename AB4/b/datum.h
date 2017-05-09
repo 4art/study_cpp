@@ -1,3 +1,5 @@
+#ifndef DATUM_H
+#define DATUM_H
 #include<string>
 class datum{
 	int tag;
@@ -15,3 +17,4 @@ class datum{
 		void datumsEingabe();
 		void datumsAusgabe();
 };
+#endif

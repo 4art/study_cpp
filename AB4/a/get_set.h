@@ -1,3 +1,5 @@
+#ifndef GET_SET_H
+#define GET_SET_H
 #include <string>
 class get_set{
 
@@ -20,3 +22,4 @@ class get_set{
 		void setSquares();
 		void printDistance();
 };
+#endif
