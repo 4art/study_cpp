@@ -4,14 +4,21 @@ using namespace std;
 class Rectacle{
 	int* height;
 	int* width;
+	int distance;
 	public:
-		void setWidth(int w){
-			width = new int;
-			*width = w;
+		Rectacle(){
+			distance = 10;
 		}
-		void setHeight(int h){
-			height = new int;
-			*height = h;
+		Rectacle(int distance){
+			this->distance = distance;
+		}
+		void setWidth(int width){
+			this->width = new int;
+			*this->width = width;
+		}
+		void setHeight(int height){
+			this->height = new int;
+			*this->height = height;
 		}
 		int getWidth(){
 			return *width;
@@ -19,15 +26,42 @@ class Rectacle{
 		int getHeight(){
 			return *height;
 		}
-//		bool checkVariables(){
-//			!width || !height || width < 0 || height < 0 ? return false : return true;
-//		}
+		bool checkVariables(){
+			if(!(*width) || !(*height) || *width < 0 || *height < 0)
+				return false;
+			else
+				return true;
+		}
 				
 		int static getArea(Rectacle *rectacle){
 			return (*rectacle->width) * (*rectacle->height);
 		}
 		int static getScope(Rectacle *rectacle){
 			return ((*rectacle->width) + (*rectacle->height)) * 2;
+		}
+		void printRectacle(){
+			printWidth();
+			for(int i = 0; i < *height - 2; i++){
+				printDistance();
+				cout << "0";
+				for(int j = 0; j < *width -2; j++){
+					cout << " ";
+				}
+				cout << "0" << endl;
+			}
+			printWidth();
+		}
+		void printWidth(){
+			printDistance();	
+			for(int i = 0; i < *width; i++){
+				cout << "0";
+			}
+			cout << endl;
+		}
+		void printDistance(){
+			for(int i = 0; i < distance; i++){
+				cout << " ";
+			}
 		}
 };
 int main(){
@@ -39,13 +73,14 @@ int main(){
 	Rectacle *rectacle = new Rectacle();
 	rectacle->setHeight(height);
 	rectacle->setWidth(width);
-//	if(!rectacle->checkVariables()){
-//		cout << "Something went wrong..." << endl;
-//		main();
-//	}
+	if(!rectacle->checkVariables()){
+		cout << "Something went wrong..." << endl;
+		main();
+	}
 	cout << "Length: " << rectacle->getHeight() << endl;	
 	cout << "Width: " << rectacle->getWidth() << endl;
 	cout << "Area: " << Rectacle::getArea(rectacle) << endl;
 	cout << "Scope: " << Rectacle::getScope(rectacle) << endl;
-	//delele rectacle;
+	rectacle->printRectacle();
+	delete rectacle;
 }
