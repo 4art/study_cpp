@@ -30,7 +30,7 @@ class Date{
 		}
 };
 class PrintDate : protected Date{
-	private:
+	protected:
 		string convert2Date(int *a){
 			string aStr = to_string(*a);
 			if(*a < 10){
@@ -47,11 +47,38 @@ class PrintDate : protected Date{
 	public:
 		PrintDate(int day, int month, int year) : Date(day, month, year){}
 		void printDate(){
-			cout << "Output 1: " << convert2Date(day) << ". " << months[*month-1] << " " << *year << endl;
-			cout << "Output 2: " << convert2Date(day) << "." << convert2Date(month) << "." << *year << endl;
-			cout << "Output 3: " << convert2Date(day) << "." << convert2Date(month) << "." << getLast2chars(convert2Date(year)) << endl;
+			cout << "Output 1: ";
+			printFirst();
+			cout << "Output 2: ";
+			printSecond();
+			cout << "Output 3: ";
+			printThird();
+		}
+		void printFirst(){
+			cout << convert2Date(day) << ". " << months[*month-1] << " " << *year << endl;
+		}
+		void printSecond(){
+			cout << convert2Date(day) << "." << convert2Date(month) << "." << *year << endl;
+		}
+		void printThird(){
+			cout << convert2Date(day) << "." << convert2Date(month) << "." << getLast2chars(convert2Date(year)) << endl;
 		}
 
+};
+class OutputDate : PrintDate{
+	public:
+		OutputDate(int day, int month, int year) : PrintDate(day, month, year){}
+		void printDate(){
+			printToday();
+			printFirst();
+			printToday();
+			printSecond();
+			printToday();
+			printThird();
+		}
+		void printToday(){
+			cout << "Today is: ";
+		}
 };
 
 int main(){
@@ -64,8 +91,12 @@ int main(){
 	cin >> year;
 	PrintDate *obj = new PrintDate(day, month, year);
 	obj->printDate();
+	cout << "-----------Exercise 2-----------" << endl;
+	OutputDate *obj1 = new OutputDate(day, month, year);
+	obj1->printDate();
 	delete obj;
-	time_t result = time(0);
-	cout << ctime(&result);
+	delete obj1;
+//	time_t result = time(0);
+//	cout << ctime(&result);
 	return 0;
 }
