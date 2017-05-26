@@ -43,7 +43,7 @@ class PrintDate : protected Date{
 		string getLast2chars(string a){
 			return a.substr(a.length() - 2);
 		}
-		const char * months[12] = {"Jan", "Feb", "Maer", "Apr", "Mai", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dez"};
+		string months[12] = {"Jan", "Feb", "Maer", "Apr", "Mai", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dez"};
 	public:
 		PrintDate(int day, int month, int year) : Date(day, month, year){}
 		void printDate(){
