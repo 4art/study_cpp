@@ -7,7 +7,7 @@ class Date{
 		int *day;
 		int *month;
 		int *year;
-	public:
+	protected:
 		Date(int day, int month, int year){
 			this->day = new int;
 			this->month = new int;
@@ -29,7 +29,7 @@ class Date{
 			*this->year = year;
 		}
 };
-class PrintDate : public Date{
+class PrintDate : protected Date{
 	private:
 		string convert2Date(int *a){
 			string aStr = to_string(*a);
