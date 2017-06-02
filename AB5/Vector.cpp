@@ -23,7 +23,7 @@ class Vector2D{
 		int getY(){
 			return y;
 		}
-		static double length(Vector2D * v){
+		static int length(Vector2D * v){
 			return sqrt(v->x * v->x + v->y * v->y);
 		}
 
