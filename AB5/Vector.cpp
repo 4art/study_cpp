@@ -23,13 +23,13 @@ class Vector2D{
 		int getY(){
 			return y;
 		}
-	//	static double length(){
-	//		return sqrt(x*x + y*y);
-	//	}
+		static double length(Vector2D * v){
+			return sqrt(v->x * v->x + v->y * v->y);
+		}
 
 };
 
 int main(){
 	Vector2D * vector = new Vector2D(5, 6);
-	cout << vector->getX();
+	cout << Vector2D::length(vector) << endl;
 }
