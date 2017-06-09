@@ -46,17 +46,48 @@ class Vehicle{
 		virtual void PrintProperties() = 0;
 };
 
+class Car: public Vehicle{
+	private:
+		string name;
+		float maxSpeed;
+		float motorPower;
+		string color;
+	public:
+		Car(string name, float maxSpeed, float motorPower, string color){
+			this->name = name;
+			this->maxSpeed = maxSpeed;
+			this->motorPower = motorPower;
+			this->color = color;
+		}
+		string getName(){
+			return name;
+		}
+		float getMaxSpeed(){
+			return maxSpeed;
+		}
+		float getMotorPower(){
+			return motorPower;
+		}
+		string getColor(){
+			return color;
+		}
+		void PrintProperties(){
+			Float speed(getMaxSpeed()), power(getMotorPower());
+			cout << "Name: " << getName() << endl << "Speed: ";
+			speed.Print();
+			cout << "Power: ";
+			power.Print();
+		}
+
+};
+
 
 
 int main(){
-  Double d1(10.34), d2(2);
-  Integer i1(47), i2(100);
+	Vehicle *car = new Car("S6", 330.8, 589.5, "red");
+	car->PrintProperties();
 
-  print(&d1);
-  print(&d2);
-  print(&i1);
-  print(&i2);
-
+	delete car;
  // n = i1;
  // n.Print();
 
