@@ -6,16 +6,36 @@ class Auto{
 
 	int alter;
 	float verbrauch; 
-	string marke; 
+	const char* marke; 
 	bool benzinOderDiesel; // 0 – benzin, 1 - diesel
 	public:
-		Auto(int alter, float verbrauch, string marke, bool benzinOderDiesel){
+		Auto(int alter, float verbrauch, const char *marke, bool benzinOderDiesel){
+			this->marke = new char;
 			this->alter = alter;
 			this->verbrauch = verbrauch;
 			this->marke = marke;
 			this->benzinOderDiesel = benzinOderDiesel;
 		}
 		Auto(){}
+		Auto(Auto *a){
+			this->marke = new char;
+			this->alter = a->alter;
+			this->verbrauch = a->verbrauch;
+			this->marke = a->marke;
+			this->benzinOderDiesel = a->benzinOderDiesel;
+		}
+		void setAlter(int alter){
+			this->alter = alter;
+		}
+		void setVerbrauch(float verbrauch){
+			this->verbrauch = verbrauch;
+		}
+		void setMarke(const char * marke){
+			this->marke = marke;
+		}
+		void setBenzinOderDiesel(bool benzinOderDiesel){
+			this->benzinOderDiesel = benzinOderDiesel;
+		}
 		int getAlter(){
 			return alter;
 		}
@@ -34,11 +54,22 @@ class Auto{
 			cout << "Marke: " << a->getMarke() << endl;
 			cout << "Kraftstof: " << (a->getBenzinOderDiesel() ? "Benzin" : "Diesel") << endl;
 		}
+		~Auto(){
+		}
+		Auto & operator= (Auto & a){
+			Auto temp(a);
+			cout << "equals" << endl;
+			return *this;
+
+		}
  
 };
 
 int main(){
-	Auto *a = new Auto(2, 9.5, "BMW", true);
-	Auto::info(a);
+	Auto *o2 = new Auto(2, 9.5, "BMW", false);
+	Auto o1(o2);
+	o1.setMarke("Mercedes");
+	Auto::info(o2);
+	Auto::info(&o1);
 	return 0;
 }
