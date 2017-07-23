@@ -62,9 +62,9 @@ int main(){
 	B * obj[3];
 	obj[0] = new C(2);
 	obj[0]->info();
-	obj[1] = new D(2);
+	obj[1] = new D(3);
 	obj[1]->info();
-	obj[2] = new E(2);
+	obj[2] = new E(4);
 	obj[2]->info();
 
 	delete [] *obj;
