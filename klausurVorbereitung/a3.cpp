@@ -1,8 +1,8 @@
 #include<iostream>
-#include<exception>
+//#include<exception>
 using namespace std;
 template<class T1>
-class E : public exception{
+class E/* : public exception*/{
 	private:
 		T1 a, b;
 	public:
@@ -13,9 +13,11 @@ class E : public exception{
 		void print(){
 			cout << "a -> " << a << "; b -> " << b << ";" << endl;
 		}
+/*
 		virtual const char* what() const throw(){
 			return "Man darf nicht auf 0 dividieren";
 		}
+*/
 };
 	template <typename T>
 	 T div(T a, T b){
@@ -30,8 +32,8 @@ int main(){
 		cout << div(30, 5) << endl;
 		cout << div(3, 0) << endl;
 	}
-	catch(exception& e){
-		cout << e.what() << endl;
+	catch(E<int> e){
+		cout << /*e.what()*/ "Man Darf nicht auf 0 dividieren" << endl;
 	}
 	return 0;
 }
