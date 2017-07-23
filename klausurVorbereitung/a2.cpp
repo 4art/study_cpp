@@ -59,13 +59,14 @@ class E: public B{
 
 
 int main(){
-	B * obj[3];
+	B * obj[10];
 	obj[0] = new C(2);
-	obj[0]->info();
 	obj[1] = new D(3);
-	obj[1]->info();
 	obj[2] = new E(4);
-	obj[2]->info();
+
+	for(int i = 0; i < 10; i++){
+		obj[i]->info();
+	}
 
 	delete [] *obj;
 
