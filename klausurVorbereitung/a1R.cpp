@@ -10,6 +10,9 @@ class A{
 			this->i = new int;
 			*this->i = i;
 		}
+		~A(){
+			delete i;
+		}
 		A(A &a){
 			this->i = new int;
 			int b = a.getI();
@@ -35,6 +38,8 @@ int main(){
 	A c(a);
 	A::print(&a);	
 	A::print(b);	
-	A::print(&c);	
+	A::print(&c);
+	
+	delete b;
 	return 0;
 }
