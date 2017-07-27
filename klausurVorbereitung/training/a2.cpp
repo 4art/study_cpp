@@ -5,7 +5,7 @@ using namespace std;
 class A{
 	private:
 		int value;
-	public:
+	protected:
 		A(int value){
 			this->value = value;
 		}

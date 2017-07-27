@@ -50,7 +50,7 @@ class Person{
 			Person temp;
 			temp.x = x - p.x;
 			temp.y = y - p.y;
-			return temp	
+			return temp;	
 		}
 
 };
